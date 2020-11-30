@@ -1,2 +1,2 @@
 include ':app'
-rootProject.name = "EC327_BackEnd"
+rootProject.name = "Ec327mk2"
