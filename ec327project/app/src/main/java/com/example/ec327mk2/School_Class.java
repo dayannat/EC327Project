@@ -21,17 +21,22 @@ public class School_Class {
             childColumns = "id_fProfile",
             onDelete = CASCADE
             )
-    private long id_fProfile;
+    public long id_fProfile;
 
     private String name;
+    private String ownerClass;
 
     //get()/set() methods.
     public String getName() {return this.name;}
+    public String getOwnerClass() {return this.ownerClass;}
 
     public void setName(String newName) {this.name = newName;}
+    public void setOwnerClass(String newName) {this.name = newName;}
 
     //constructor
-    public School_Class(String name) {
+    public School_Class(String name, String ownerClass) {
+
         this.name = name;
+        this.ownerClass = ownerClass;
     }
 }

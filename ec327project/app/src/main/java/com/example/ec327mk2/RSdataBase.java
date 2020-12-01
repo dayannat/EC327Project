@@ -11,8 +11,9 @@ import androidx.room.RoomDatabase;
 *  the whole app.
  */
 @Database(entities = {Player_Profile.class, School_Class.class, Assignment.class,
-                        Player_Profile_With_School_Classes.class,
-                        School_Class_With_Assignments.class}, exportSchema = false, version = 1)
+                        /*Player_Profile_With_School_Classes.class,
+                        School_Class_With_Assignments.class*/}, exportSchema = false,
+                        version = 1)
 public abstract class RSdataBase extends RoomDatabase {
 
     private static final String DB_NAME = "RSdataBase";

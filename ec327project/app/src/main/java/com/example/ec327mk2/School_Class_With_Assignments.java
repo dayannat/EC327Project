@@ -1,3 +1,4 @@
+/*
 package com.example.ec327mk2;
 
 import androidx.room.Embedded;
@@ -5,11 +6,13 @@ import androidx.room.Relation;
 
 import java.util.List;
 
+
 public class School_Class_With_Assignments {
     @Embedded public School_Class School_Class;
     @Relation(
             parentColumn = "scID",
-            entityColumn = "aID"
+            entityColumn = "aID",
+            entity = Assignment.class
     )
     public List<Assignment> assignments;
 
@@ -19,3 +22,4 @@ public class School_Class_With_Assignments {
         this.assignments = assignments;
     }
 }
+*/

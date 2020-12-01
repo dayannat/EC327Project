@@ -18,6 +18,9 @@ import java.util.List;
 public interface profileDao {
 
     //getAll() methods
+    //Apparently these aren't needed. Commenting them out until we figure out column linking.
+
+    /*
     @Transaction
     @Query("SELECT * FROM Player_Profile")
     public List<Player_Profile_With_School_Classes> getPlayerProfilesWithSchoolClasses();
@@ -25,6 +28,7 @@ public interface profileDao {
     @Transaction
     @Query("SELECT * FROM School_Class")
     public List<School_Class_With_Assignments> getSchoolClassesWithAssignments();
+     */
 
     @Query("SELECT * FROM Player_Profile")
     public List<Player_Profile> getPlayerProfiles();
@@ -57,6 +61,20 @@ public interface profileDao {
 
     /* I don't believe I need to update the linkage classes.*/
 
+    //Insert() These make new things in the database. They'll need to be initialized first in main.
+    /*I don't know how to make these linked with their child classes*/
+    @Transaction
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    public void insertProfile(Player_Profile profile);
+
+    @Transaction
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    public void insertSchoolClass(School_Class schoolClass);
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    public void insertAssignment(Assignment assignment);
+
+
     //Delete() if you need to axe a piece of data.
     @Delete
     public void deletePlayerProfiles(Player_Profile ...profiles);
@@ -67,5 +85,9 @@ public interface profileDao {
     @Delete
     public void deleteAssignments(Assignment ...assignments);
     /*May need delete methods for the two linkage classes.*/
-    
+
+    //Testing out linkage fields method.
+    @Query("SELECT * FROM School_Class WHERE ownerClass == :name")
+    public List<School_Class> getOneClassTest(String name);
+
 }
