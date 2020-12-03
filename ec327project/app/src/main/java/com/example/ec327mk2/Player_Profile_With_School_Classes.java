@@ -8,7 +8,9 @@ import java.util.List;
 
 //Right now it demands this have the entity tag, which it shouldn't.
 public class Player_Profile_With_School_Classes {
-    @Embedded public Player_Profile profile;
+
+    @Embedded public Profile profile;
+
     @Relation(
             parentColumn = "pID",
             entityColumn = "scID",
@@ -16,11 +18,14 @@ public class Player_Profile_With_School_Classes {
     )
     public List<School_Class> classes;
 
-   public Player_Profile_With_School_Classes(Player_Profile player_profile,
-                                              List<School_Class> school_classes)
+    //Have to have empty constructors to appease the Room gods
+    public Player_Profile_With_School_Classes(){}
+
+    public Player_Profile_With_School_Classes(Profile Player_Profile,
+                                              List<School_Class> School_Class)
     {
-        this.profile = player_profile;
-        this.classes = school_classes;
+        this.profile = Profile;
+        this.classes = School_Class;
     }
 
 }

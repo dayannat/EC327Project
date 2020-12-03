@@ -1,7 +1,8 @@
-/*
+
 package com.example.ec327mk2;
 
 import androidx.room.Embedded;
+import androidx.room.Ignore;
 import androidx.room.Relation;
 
 import java.util.List;
@@ -16,10 +17,12 @@ public class School_Class_With_Assignments {
     )
     public List<Assignment> assignments;
 
+    //Have to have empty constructors to appease the Room gods
+    public School_Class_With_Assignments(){}
+
     public School_Class_With_Assignments(School_Class school_class, List<Assignment> assignments)
     {
         this.School_Class = school_class;
         this.assignments = assignments;
     }
 }
-*/
